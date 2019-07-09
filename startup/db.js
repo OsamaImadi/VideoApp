@@ -3,7 +3,7 @@ const winston = require('winston');
 
 
 module.exports = function(){
-    mongoose.connect('mongodb://localhost:27017/vidly' , { useNewUrlParser: true });
+    mongoose.connect('mongodb://localhost/vidly' , { useNewUrlParser: true });
     mongoose.connection.once('open',()=>{
         winston.info('Connection made');
     }).on('error', (error)=>{
