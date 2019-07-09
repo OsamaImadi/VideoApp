@@ -8,7 +8,7 @@ console.log('-----------++++++++DB Link', dbLink);
 
 
 module.exports = function(){
-    mongoose.connect('mongodb://localhost/vidly' , { useNewUrlParser: true });
+    mongoose.connect( dbLink, { useNewUrlParser: true });
     mongoose.connection.once('open',()=>{
         //winston.info('Connection made');
         console.log(config.db);
