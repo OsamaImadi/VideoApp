@@ -2,6 +2,9 @@ const winston = require('winston');
 require('winston-mongodb');
 require('express-async-errors');
 
+const config = require('config');
+
+const dbLink= config.get("db");
 
 module.exports = function() {
     process.on("uncaughtException", ex => {
@@ -18,7 +21,7 @@ module.exports = function() {
    
     winston.add(
       new winston.transports.MongoDB({
-        db: "mongodb://localhost/vidly",
+        db: dbLink,
         level: "info"
       })
     );
