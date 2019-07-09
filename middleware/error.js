@@ -21,12 +21,16 @@
 
 const winston = require('winston'); // <-- removed this from index.js (I kept 'error' requirement in index.js)
 require('winston-mongodb');
+
+const config = require('config');
+
+const dbLink= config.get("db");
  
 const logger = winston.createLogger({
   transports: [ // <-- removed the transports from index.js, put them here.
     new winston.transports.Console(),
     new winston.transports.File({ filename: 'logfile.log' }),
-    new winston.transports.MongoDB({ db: 'mongodb://localhost:27017/vidly', metaKey: "meta" }) // <-- { metaKey: "meta" } just makes sure the field is saved under the name 'meta' in the database, probably not necessary.
+    new winston.transports.MongoDB({ db:dbLink, metaKey: "meta" }) // <-- { metaKey: "meta" } just makes sure the field is saved under the name 'meta' in the database, probably not necessary.
   ]
 });
  
