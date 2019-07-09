@@ -1,4 +1,4 @@
 {
     "jwtPrivateKey": "vidly_jwtPrivateKey",
-    "db": "Cluster0"
+    "db": "vidly_db"
 }
