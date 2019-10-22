@@ -8,7 +8,6 @@ describe("Auth middleware", () => {
     server = require("../../app");
   });
   afterEach(async () => {
-    // server.close();
     await Genre.remove({});
   });
 

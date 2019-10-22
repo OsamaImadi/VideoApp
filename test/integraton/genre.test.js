@@ -8,7 +8,6 @@ describe("/api/genres", () => {
     server = require("../../app");
   });
   afterEach(async () => {
-    // server.close();
     await Genre.remove({});
   });
 
